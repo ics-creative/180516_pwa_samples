@@ -1,6 +1,6 @@
 {
-  "short_name": "PWA Fast Tap On",
-  "name": "PWA Fast Tap On",
+  "short_name": "PWA apple-touch-startup-image",
+  "name": "PWA apple-touch-startup-image",
   "icons": [
     {
       "src": "../assets/icon.png",
