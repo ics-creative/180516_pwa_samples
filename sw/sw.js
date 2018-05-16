@@ -1,54 +1,59 @@
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = [
+const CACHE_NAME = 'my-site-cache-v2';
+const urlsToCache = [
   '../assets/photo.jpg',
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', async (event) => {
   // インストール処理
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache' + new Date().toLocaleTimeString());
-        return cache.addAll(urlsToCache);
-      })
+      .then((cache) => cache.addAll(urlsToCache))
   );
 });
 
+self.addEventListener('fetch', (event) => {
 
+  console.log('step - 0', event.request);
 
-
-self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
-        console.log(new Date().toLocaleTimeString(), event)
+      .then((response) => {
+
+        console.log('step - 1', response);
+
         // キャッシュがあったのでレスポンスを返す
         if (response) {
+          console.log('step - 1 - 1');
+          console.table(response);
           return response;
         }
+
+        console.log('step - 2', response);
 
         // 重要：リクエストを clone する。リクエストは Stream なので
         // 一度しか処理できない。ここではキャッシュ用、fetch 用と2回
         // 必要なので、リクエストは clone しないといけない
-        var fetchRequest = event.request.clone();
+        const fetchRequest = event.request.clone();
 
         return fetch(fetchRequest).then(
-          function(response) {
+          (response) => {
+            console.log('step - 3', response);
+
             // レスポンスが正しいかをチェック
-            if(!response || response.status !== 200 || response.type !== 'basic') {
+            if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
 
             // 重要：レスポンスを clone する。レスポンスは Stream で
             // ブラウザ用とキャッシュ用の2回必要。なので clone して
             // 2つの Stream があるようにする
-            var responseToCache = response.clone();
+            const responseToCache = response.clone();
 
             caches.open(CACHE_NAME)
-              .then(function(cache) {
+              .then((cache) => {
                 cache.put(event.request, responseToCache);
               });
-
+            console.log('step - 4', response);
             return response;
           }
         );

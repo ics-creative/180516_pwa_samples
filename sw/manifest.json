@@ -1,6 +1,6 @@
 {
-  "short_name": "PWA Viewport Scalable No",
-  "name": "PWA Viewport Scalable No",
+  "short_name": "PWA Service Worker",
+  "name": "PWA Service Worker",
   "icons": [
     {
       "src": "../assets/icon.png",
