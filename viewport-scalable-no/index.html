@@ -15,29 +15,12 @@
 
     body {
       text-align: center;
-    }
-
-    button {
-      width: 100%;
-      padding: 1em 0.5em;
+      background: aliceblue;
     }
   </style>
 </head>
 <body>
-  <h1>Fast Tapの検証</h1>
-  <button>+1</button>
-
-  <p></p>
-
-  <script>
-
-    const btn = document.querySelector('button');
-    let count = 0;
-    btn.addEventListener('click', () => {
-      count++;
-      document.querySelector('p').innerHTML = count;
-    });
-  </script>
-
+  <h1>user-scalableの検証</h1>
+  <p>ピンチインできないことが期待値</p>
 </body>
 </html>
