@@ -1,0 +1,15 @@
+{
+  "short_name": "PWA Viewport Scalable No",
+  "name": "PWA Viewport Scalable No",
+  "icons": [
+    {
+      "src": "../assets/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html?homescreen=1",
+  "display": "standalone",
+  "background_color": "#78909C",
+  "theme_color": "#FF80AB"
+}
