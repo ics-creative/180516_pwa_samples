@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Sample - Fast Tap</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+  <meta name="google" content="notranslate"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="../assets/icon.png"/>
+  <style>
+
+    html {
+      touch-action: manipulation;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      padding: 1em 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>orientationの検証</h1>
+  <button>+1</button>
+
+  <p></p>
+
+  <script>
+
+    const btn = document.querySelector('button');
+    let count = 0;
+    btn.addEventListener('click', () => {
+      count++;
+      document.querySelector('p').innerHTML = count;
+    });
+  </script>
+
+</body>
+</html>

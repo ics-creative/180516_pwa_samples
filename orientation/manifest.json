@@ -1,6 +1,6 @@
 {
-  "short_name": "PWA apple-touch-startup-image",
-  "name": "PWA apple-touch-startup-image",
+  "short_name": "PWA orientation",
+  "name": "PWA orientation",
   "icons": [
     {
       "src": "../assets/icon.png",
